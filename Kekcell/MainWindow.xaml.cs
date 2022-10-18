@@ -198,11 +198,13 @@ namespace Kekcell
                 string filePath = FileDialogs.Open();
                 if (filePath != "")
                 {
-                    if (AskIfClosing() == MessageBoxResult.Cancel)
-                        return;
-                    else
-                        hasChanges = false;
-
+                    if (hasChanges)
+                    {
+                        if (AskIfClosing() == MessageBoxResult.Cancel)
+                            return;
+                        else
+                            hasChanges = false;
+                    }
                     var mw = new MainWindow(filePath);
                     Close();
                     mw.Show();
@@ -217,6 +219,26 @@ namespace Kekcell
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
+        }
+
+        private void New_Click(object sender, RoutedEventArgs e)
+        {
+            if (hasChanges)
+            {
+                if (AskIfClosing() == MessageBoxResult.Cancel)
+                    return;
+                else
+                    hasChanges = false;
+            }
+
+            var mw = new MainWindow();
+            Close();
+            mw.Show();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -48,12 +48,12 @@
         <StackPanel DockPanel.Dock="Top">
             <Menu VerticalAlignment="Top">
                 <MenuItem Header="File">
-                    <MenuItem Header="New Table" />
+                    <MenuItem Header="New Table" Click="New_Click" />
                     <MenuItem Header="Open Table" Click="Open_Click" />
-                    <MenuItem Header="Save" Click="Save_Click"/>
+                    <MenuItem Header="Save" Click="Save_Click" />
                     <MenuItem Header="Save As..." Click="SaveAs_Click" />
                     <Separator />
-                    <MenuItem Header="Exit" />
+                    <MenuItem Header="Exit" Click="Exit_Click"/>
                 </MenuItem>
                 <MenuItem Header="Edit">
                     <MenuItem Header="Size" Click="EditSize_Click"/>
