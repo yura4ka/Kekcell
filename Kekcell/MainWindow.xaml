@@ -1,0 +1,84 @@
+﻿<Window x:Class="Kekcell.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Icon="Images/logo.ico"
+        Title="Kekcell" Height="450" Width="800"
+        Closing="Window_Closing">
+    <Window.Resources>
+        <Style x:Key="CellName" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="DemiBold" />
+            <Setter Property="Foreground" Value="#FF3C3C3C" />
+            <Setter Property="Margin" Value="5 0 0 0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style x:Key="Input" TargetType="TextBox">
+            <Setter Property="Margin" Value="10 0 0 0" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Padding" Value="5 2" />
+        </Style>
+
+        <Style TargetType="DataGrid">
+            <Setter Property="VerticalGridLinesBrush" Value="#FFE1E2E4" />
+            <Setter Property="HorizontalGridLinesBrush" Value="#FFE1E2E4" />
+        </Style>
+
+        <Style TargetType="DataGridRowHeader">
+            <Setter Property="Margin" Value="0 -1 -1 0" />
+            <Setter Property="Width" Value="30" />
+        </Style>
+
+        <Style TargetType="DataGridCell">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="BorderBrush" Value="#228BE6"/>
+                    <Setter Property="BorderThickness" Value="2" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top">
+            <Menu VerticalAlignment="Top">
+                <MenuItem Header="File">
+                    <MenuItem Header="New Table" />
+                    <MenuItem Header="Open Table" Click="Open_Click" />
+                    <MenuItem Header="Save" Click="Save_Click"/>
+                    <MenuItem Header="Save As..." Click="SaveAs_Click" />
+                    <Separator />
+                    <MenuItem Header="Exit" />
+                </MenuItem>
+                <MenuItem Header="Edit">
+                    <MenuItem Header="Size" Click="EditSize_Click"/>
+                </MenuItem>
+                <MenuItem Header="Help" Click="Help_Click" />
+            </Menu>
+
+            <Grid Margin="2 10 10 10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" BorderThickness="1" BorderBrush="#FFABADB3">
+                    <TextBlock x:Name="CurrentCellName" Style="{StaticResource CellName}" Margin="5,0,0,2" VerticalAlignment="Center" Text="A1" Foreground="#FF292929"/>
+                </Border>
+                <TextBox x:Name="ExpressionInput" Grid.Column="1" Style="{StaticResource Input}" LostFocus="ExpressionInput_LostFocus" />
+            </Grid>
+        </StackPanel>
+
+        <DataGrid x:Name="Grid" CanUserSortColumns="False" CanUserAddRows="False" SelectionUnit="Cell" SelectionMode="Single" LoadingRow="OnLoadingRow" IsSynchronizedWithCurrentItem="True" Loaded="Grid_Loaded" SelectedCellsChanged="Grid_SelectedCellChanged" CellEditEnding="Grid_CellEditEnding">
+            <DataGrid.RowHeaderTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow},Path=Header}"/>
+                </DataTemplate>
+            </DataGrid.RowHeaderTemplate>
+        </DataGrid>
+    </DockPanel>
+</Window>

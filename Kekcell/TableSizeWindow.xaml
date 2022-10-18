@@ -1,0 +1,84 @@
+﻿<Window x:Class="Kekcell.TableSizeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Icon="Images/logo.ico"
+        Title="Kekcell - Table Size" Height="200" Width="420">
+
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontFamily" Value="Noto Sans" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontFamily" Value="Noto Sans" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="2" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontFamily" Value="Noto Sans" />
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="0.4*" />
+            <ColumnDefinition Width="0.1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="0.3*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="18" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Content="Кількість рядків:" />
+        <TextBox x:Name="RowsInput" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" LostFocus="RowsInput_LostFocus">1</TextBox>
+        <RepeatButton x:Name="ButtonRowUp" Grid.Row="0" Grid.Column="2" Click="RowCounterUp_Click">
+            <RepeatButton.Content>
+                <Image Source="Images/arrow_up.png" Width="12" Height="12"/>
+            </RepeatButton.Content>
+        </RepeatButton>
+        <RepeatButton x:Name="ButtonRowDown" Grid.Row="1" Grid.Column="2" Click="RowCounterDown_Click">
+            <RepeatButton.Content>
+                <Image Source="Images/arrow_down.png" Width="12" Height="12"/>
+            </RepeatButton.Content>
+        </RepeatButton>
+
+        <Label Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" Content="Кількість стовпчиків:" />
+        <TextBox x:Name="ColumnsInput" Grid.Row="3" Grid.Column="1" Grid.RowSpan="2" LostFocus="ColumnsInput_LostFocus">1</TextBox>
+        <RepeatButton x:Name="ButtonColumnUp" Grid.Row="3" Grid.Column="2" Click="ColumnCounterUp_Click">
+            <RepeatButton.Content>
+                <Image Source="Images/arrow_up.png" Width="12" Height="12"/>
+            </RepeatButton.Content>
+        </RepeatButton>
+        <RepeatButton x:Name="ButtonColumnDown" Grid.Row="4" Grid.Column="2" Click="ColumnCounterDown_Click">
+            <RepeatButton.Content>
+                <Image Source="Images/arrow_down.png" Width="12" Height="12"/>
+            </RepeatButton.Content>
+        </RepeatButton>
+
+        <Grid Grid.Row="6" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.1*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" IsCancel="True">Скасувати</Button>
+            <Button Grid.Column="3" Click="ChangeButton_Click">Змінити</Button>
+        </Grid>
+    </Grid>
+</Window>

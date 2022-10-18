@@ -1,0 +1,471 @@
+﻿<Window x:Class="Kekcell.Help"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="7000" d:DesignWidth="700"
+      Title="Kekcell - Help" Width="700" Height="900"
+      Icon="Images/logo.ico">
+
+    <Window.Resources>
+        <Style TargetType="Section">
+            <Setter Property="FontFamily" Value="Noto Sans" />
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="TextAlignment" Value="Left" />
+
+            <Style.Resources>
+                <Style TargetType="Span">
+                    <Setter Property="Background" Value="#FFE2E2E2"/>
+                    <Setter Property="FontFamily" Value="Noto Sans Light" />
+                    <Setter Property="FontWeight" Value="Light" />
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style TargetType="Paragraph" x:Key="Title">
+            <Setter Property="FontSize" Value="32" />
+            <Setter Property="FontWeight" Value="Medium" />
+        </Style>
+
+        <Style TargetType="List">
+            <Setter Property="Margin" Value="0 6" />
+        </Style>
+
+        <Style TargetType="Paragraph" x:Key="ListItem">
+            <Setter Property="FontWeight" Value="Medium" />
+        </Style>
+
+        <Style TargetType="Paragraph" x:Key="Header">
+            <Setter Property="FontFamily" Value="Noto Sans" />
+            <Setter Property="FontSize" Value="38" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="TextAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
+
+    <FlowDocumentScrollViewer>
+        <FlowDocument>
+            <Paragraph Style="{StaticResource Header}">
+                Документація
+            </Paragraph>
+            <Section>
+                <Paragraph Style="{StaticResource Title}">Зміст</Paragraph>
+                <List MarkerStyle="Decimal">
+                    <ListItem>
+                        <Paragraph Style="{StaticResource ListItem}">Арифметичні операції</Paragraph>
+                        <List>
+                            <ListItem>
+                                <Paragraph>Додавання / Віднімання</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>Множення / Ділення</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>Остача від ділення</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>Піднесення до степеня</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>Складні вирази</Paragraph>
+                            </ListItem>
+                        </List>
+                    </ListItem>
+
+                    <ListItem>
+                        <Paragraph Style="{StaticResource ListItem}">Тригонометричні функції</Paragraph>
+                        <List>
+                            <ListItem>
+                                <Paragraph>Тригонометричні функції</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>Число π</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>Використання градусів</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>Гіперболічні функції</Paragraph>
+                            </ListItem>
+                        </List>
+                    </ListItem>
+
+                    <ListItem>
+                        <Paragraph Style="{StaticResource ListItem}">Статистичні функції</Paragraph>
+                        <List>
+                            <ListItem>
+                                <Paragraph>Максимум / Мінімум</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>Сума / Добуток набору чисел</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>Середнє арифметичне</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>Медіана</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>Мода</Paragraph>
+                            </ListItem>
+                        </List>
+                    </ListItem>
+
+                    <ListItem>
+                        <Paragraph Style="{StaticResource ListItem}">Математичні функції</Paragraph>
+                        <List>
+                            <ListItem>
+                                <Paragraph>Логарифм</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>Округлення</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>Інші функції</Paragraph>
+                                <List>
+                                    <ListItem>
+                                        <Paragraph>Abs</Paragraph>
+                                    </ListItem>
+                                    <ListItem>
+                                        <Paragraph>Sqrt</Paragraph>
+                                    </ListItem>
+                                    <ListItem>
+                                        <Paragraph>Exp</Paragraph>
+                                    </ListItem>
+                                </List>
+                            </ListItem>
+                        </List>
+                    </ListItem>
+                </List>
+            </Section>
+
+            <Section>
+                <Paragraph Style="{StaticResource Title}">
+                    1. Арифметичні операції
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Додавання / Віднімання
+                </Paragraph>
+                <Paragraph>
+                    <Span>19 + 20</Span> – Додавання (=39)
+                    <LineBreak />
+                    <Span>5.1 - 5</Span> – Віднімання (=0.1)
+                    <LineBreak />
+                    <Span>A1 + 4.5 - B2</Span> – Використання значень комірок
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Множення / Ділення
+                </Paragraph>
+                <Paragraph>
+                    <Span>5 * 5.2</Span> – Множення (=26)
+                    <LineBreak />
+                    <Span>10.2 / 3</Span> – Ділення (=3.4)
+                    <LineBreak />
+                    <Span>A3 * 2.2 / B4</Span> – Використання значень комірок
+                    <LineBreak />
+                    <LineBreak />
+                    <Italic>Ділення на нуль заборонено!</Italic>
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Остача від ділення
+                </Paragraph>
+                <Paragraph>
+                    <Span>26 % 5</Span> – (=1)
+                    <LineBreak />
+                    <Span>12.2 % 3.3</Span> – (=2.3)
+                    <LineBreak />
+                    <Span>A1 % B1 % 2</Span> – Використання значень комірок
+                    <LineBreak />
+                    <LineBreak />
+                    <Italic>Обчислення остачі від ділення на нуль заборонено!</Italic>
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Піднесення до степеня
+                </Paragraph>
+                <Paragraph>
+                    <Span>2^8</Span> – (=256)
+                    <LineBreak />
+                    <Span>2^-2</Span> – (=0.25)
+                    <LineBreak />
+                    <Span>16^(1/2)</Span> – (=4)
+                    <LineBreak />
+                    <Span>2^2^3</Span> – (=64)
+                    <LineBreak />
+                    <Span>0^0</Span> – (=1)
+                    <LineBreak />
+                    <Span>2 ^ A1 ^ B1</Span> – Використання значень комірок
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Складні вирази
+                </Paragraph>
+                <Paragraph>
+                    <Span>12 * 3 % 5</Span> – (=1)
+                    <LineBreak />
+                    <Span>-2 + 12 * (8 % 5)</Span> – (=34)
+                    <LineBreak />
+                    <Span>A1 - B1^(2 + C3 / 2)</Span> – Використання значень комірок
+                </Paragraph>
+            </Section>
+
+            <Section>
+                <Paragraph Style="{StaticResource Title}">
+                    2. Тригонометричні функції
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Тригонометричні функції
+                </Paragraph>
+                <Paragraph>
+                    <Span>Sin(90)</Span> – Синус 90 радіан (=0.8939966636)
+                    <LineBreak />
+                    <Span>Cos(30)</Span> – Косинус 30 радіан (=0.15425144988)
+                    <LineBreak />
+                    <Span>Tan(-30)</Span> – Тангенс -30 радіан (=6.40533119665)
+                    <LineBreak />
+                    <Span>Cot(20)</Span> – Котангенс 20 радіан (=0.44699510894)
+                    <LineBreak />
+                    <Span>Cos(A1) - B2 * Sin(30)</Span> – Використання значень комірок
+                    <LineBreak />
+                    <LineBreak />
+                    <Italic>При деяких значеннях аргумента, функції
+                        <Span>Cot</Span> та
+                        <Span>Tan</Span> невизначені
+                    </Italic>
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Число π
+                </Paragraph>
+                <Paragraph>
+                    <Span>pi</Span> – Число π (=3.14159265359)
+                    <LineBreak />
+                    <Span>Sin(pi/6)</Span> – Cинус π/6 радіан (30 градусів) (=0.5)
+                    <LineBreak />
+                    <Span>Cos(2*pi/3)</Span> – Косинус 2π/3 радіан (120 градусів) (=-0.5)
+                    <LineBreak />
+                    <Span>Tan(pi/4) + B2 * pi</Span> – Використання значень комірок
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Використання градусів
+                </Paragraph>
+                <Paragraph>
+                    <Span>30deg</Span> – 30 градусів (=0.523598776)
+                    <LineBreak />
+                    <Span>(15 * 2)deg</Span> – 15*2 градусів (=0.523598776)
+                    <LineBreak />
+                    <Span>pi/6deg</Span> – (=30)
+                    <LineBreak />
+                    <Span>(pi/6)deg</Span> – (=0.0091385225)
+                    <LineBreak />
+                    <Span>Sin(30deg)</Span> – Сінус 30 градусів (=0.5)
+                    <LineBreak />
+                    <Span>Cot(-45deg)</Span> – Котангенс -45 градусів (=-1)
+                    <LineBreak />
+                    <Span>Sin((A1*2)deg) * 3deg</Span> – Використання значень комірок
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Гіперболічні функції
+                </Paragraph>
+                <Paragraph>
+                    <Span>Sinh(1)</Span> – Гіперболічний синус (=1.1752011936438)
+                    <LineBreak />
+                    <Span>Cosh(1)</Span> – Гіперболічний косинус (=1.54308063481524)
+                    <LineBreak />
+                    <Span>Tanh(1)</Span> – Гіперболічний тангенс (=0.761594155955765)
+                    <LineBreak />
+                    <Span>Coth(1)</Span> – Гіперболічний котангенс (=1.31303528549933)
+                    <LineBreak />
+                    <Span>Cosh(A1) - B2 * Sinh(30)</Span> – Використання значень комірок
+                    <LineBreak />
+                    <LineBreak />
+                    <Italic>При деяких значень аргументу, функції невизначені!
+                    </Italic>
+                </Paragraph>
+            </Section>
+
+            <Section>
+                <Paragraph Style="{StaticResource Title}">
+                    3. Статистичні функції
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Максимум / Мінімум
+                </Paragraph>
+                <Paragraph>
+                    <Span>Max(2, 4, 6)</Span> – Максимум (=6)
+                    <LineBreak />
+                    <Span>Max(2, 4, 6)</Span> – Мінімум (=2)
+                    <LineBreak />
+                    <Span>Max(2*2, 5, Min(Sin(30deg), 2^2, 4, 5), 10)</Span> – (=0.5)
+                    <LineBreak />
+                    <Span>Max(A1, A2, B1, C3+2) ^ A3</Span> – Використання значень комірок
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Сума / Добуток набору чисел
+                </Paragraph>
+                <Paragraph>
+                    <Span>Sum(2, 4, 6, 10)</Span> – Сума (=22)
+                    <LineBreak />
+                    <Span>Produce(2, 4, 6)</Span> – Добуток (=48)
+                    <LineBreak />
+                    <Span>Sum(Sin(A1), A2, B1, C3+2) * 2</Span> – Використання значень комірок
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Середнє арифметичне
+                </Paragraph>
+                <Paragraph>
+                    <Span>Average(2, 4, 6, 10)</Span> – Середнє арифметичне (=5.5)
+                    <LineBreak />
+                    <Span>Average(Sin(A1), A2, B1, C3+2) * 2</Span> – Використання значень комірок
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Медіана
+                </Paragraph>
+                <Paragraph>
+                    <Span>Median(1, 6, 7, 3, 8, 3, 9)</Span> – Медіана (=6)
+                    <LineBreak />
+                    <Span>Median(1, 4, 5, 6, 2, 3, 8, 9)</Span> – Медіана (=4.5)
+                    <LineBreak />
+                    <Span>Median(Sin(A1), A2, B1, C3+2) * 2</Span> – Використання значень комірок
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Мода
+                </Paragraph>
+                <Paragraph>
+                    <Span>Mode(1, 1, 2, 3, 4, 3, 3, 5)</Span> – Мода (=3)
+                    <LineBreak />
+                    <Span>Mode(Sin(A1), A2, B1, C3+2) * 2</Span> – Використання значень комірок
+                </Paragraph>
+            </Section>
+
+            <Section>
+                <Paragraph Style="{StaticResource Title}">
+                    4. Математичні функції
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Логарифм
+                </Paragraph>
+                <Paragraph>
+                    <Span>Log(20)</Span> – Натуральний логарифм (=1.30102999566)
+                    <LineBreak />
+                    <Span>Log2(8)</Span> – Двійковий логарифм (=3)
+                    <LineBreak />
+                    <Span>Log10(100)</Span> – Десятичний логарифм (=2)
+                    <LineBreak />
+                    <Span>Log(5, 25)</Span> – Логарифм від 25 за основою 5 (=2)
+                    <LineBreak />
+                    <Span>e</Span> – Число Ейлера (=2.71828182846)
+                    <LineBreak />
+                    <Span>Log(e, e^3)</Span> – Логарифм від e^3 за основою e (=3)
+                    <LineBreak />
+                    <Span>Log(A1, A2) * B3</Span> – Використання значень комірок
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Округлення
+                </Paragraph>
+                <Table>
+                    <Table.Columns>
+                        <TableColumn Width="0.3*" />
+                        <TableColumn Width="0.2*" />
+                        <TableColumn Width="0.2*" />
+                        <TableColumn Width="0.2*" />
+                        <TableColumn Width="*" />
+                    </Table.Columns>
+                    <TableRowGroup>
+                        <TableRow>
+                            <TableCell></TableCell>
+                            <TableCell>
+                                <Paragraph>2.2</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>2.5</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>2.8</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>
+                                    <Span>Floor</Span>
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>2</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>2</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>2</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Округлення вниз</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>
+                                    <Span>Ceil</Span>
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>3</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>3</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>3</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Округлення вгору</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>
+                                    <Span>Round</Span>
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>2</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>2</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>3</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Округлення</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                    </TableRowGroup>
+                </Table>
+                <Paragraph>
+                    <Span>Round(A1) - 2 * Ceil(B1)</Span> – Використання значень комірок
+                </Paragraph>
+                <Paragraph Style="{StaticResource ListItem}">
+                    Інші функції
+                </Paragraph>
+                <Paragraph>
+                    <Span>Abs(20)</Span> – Абсолютне значення (=20)
+                    <LineBreak />
+                    <Span>Abs(-20)</Span> – Абсолютне значення (=20)
+                    <LineBreak />
+                    <LineBreak />
+                    <Span>Sqrt(100)</Span> – Квадратний корінь (=10)
+                    <LineBreak />
+                    <LineBreak />
+                    <Italic>Заборонено обчислювати квадратний корінь з від'ємних значень!</Italic>
+                    <LineBreak />
+                    <LineBreak />
+                    <Span>Exp(2)</Span> – e^2 (=7.3890560989310)
+                    <LineBreak />
+                    <LineBreak />
+                    <Span>Exp(A1-1) + Sqrt(Abs(B1))</Span> – Використання значень комірок
+                </Paragraph>
+            </Section>
+        </FlowDocument>
+    </FlowDocumentScrollViewer>
+</Window>

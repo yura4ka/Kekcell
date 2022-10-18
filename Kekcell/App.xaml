@@ -1,0 +1,9 @@
+﻿<Application x:Class="Kekcell.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Kekcell"
+             StartupUri="StartWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
