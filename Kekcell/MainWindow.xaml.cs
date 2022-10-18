@@ -163,6 +163,14 @@ namespace Kekcell
                     Grid.ItemsSource = _table.Data.DefaultView;
                     Grid.Items.Refresh();
                     hasChanges = true;
+
+                    (int row, int column) = NameGenerator.CellNameToPosition(CurrentCellName.Text);
+                    Grid.CurrentCell = new DataGridCellInfo(
+                        Grid.Items[Math.Min(row, _table.Rows - 1)],
+                        Grid.Columns[Math.Min(column, _table.Columns - 1)]);
+                    Grid.UnselectAll();
+                    Grid.SelectedCells.Add(Grid.CurrentCell);
+
                 }
                 catch (Exception ex)
                 {
