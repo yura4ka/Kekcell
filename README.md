@@ -1,3 +1,3 @@
 # Kekcell
 Simple university project.
-Excell-like spreadsheet whith much less functionality.
+Excell-like spreadsheet with much less functionality.

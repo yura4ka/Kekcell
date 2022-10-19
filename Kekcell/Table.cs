@@ -103,7 +103,7 @@ namespace Kekcell
         public bool CheckCycles(string cell1, string cell2)
         {
             (int row, int column) = NameGenerator.CellNameToPosition(cell1);
-            return _cells[row * Columns + column].HasReference(cell2);
+            return _cells[row * Columns + column].CheckReference(cell2);
         }
 
         public bool ChangeSize(int rows, int columns)

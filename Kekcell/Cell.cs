@@ -157,9 +157,18 @@ namespace Kekcell
             }
         }
 
-        public bool HasReference(string name)
+        public bool CheckReference(string name)
         {
-            return _references.ContainsKey(name);
+            if (_references.ContainsKey(name))
+                return true;
+
+            foreach (var r in _references)
+            {
+                if (r.Value.CheckReference(name))
+                    return true;
+            }
+
+            return false;
         }
 
         public bool RemakeDependencies(int maxRow, int maxColumn, List<Cell> cells)
