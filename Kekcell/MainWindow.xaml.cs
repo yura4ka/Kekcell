@@ -51,8 +51,8 @@ namespace Kekcell
                 return;
             var first = Grid.SelectedCells[0];
             var row = (DataGridRow)Grid.ItemContainerGenerator.ContainerFromItem(first.Item);
-            CurrentCellName.Text = $"{first.Column.Header}{row.Header}";
-            ExpressionInput.Text = _table.GetExpression(row.GetIndex(), first.Column.DisplayIndex);
+            CurrentCellName.Text = $"{first.Column.Header}{row?.Header ?? 1}";
+            ExpressionInput.Text = _table.GetExpression(row?.GetIndex() ?? 0, first.Column.DisplayIndex);
         }
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)

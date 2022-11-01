@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Xml.Linq;
 
 namespace Kekcell
 {
@@ -25,14 +26,19 @@ namespace Kekcell
         {
             if (_name.ToString() == "")
             {
-                _name.Append('A');
+                _name.Append("A");
                 return "A";
             }
+            int reminder = 1;
+            for (int i = _name.Length - 1; i >= 0; i--)
+            {
+                char last = (char)(_name[i] + reminder);
+                reminder = last > 'Z' ? 1 : 0;
+                if (last > 'Z') last = 'A';
+                _name[i] = last;
+            }
 
-            char lastSymbol = _name[_name.Length - 1];
-            lastSymbol++;
-            _name.Remove(_name.Length - 1, 1);
-            _name.Append(lastSymbol > 'Z' ? "AA" : lastSymbol);
+            if (reminder != 0) _name.Insert(0, 'A');
             return _name.ToString();
         }
 
