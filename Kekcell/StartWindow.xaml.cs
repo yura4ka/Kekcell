@@ -35,7 +35,7 @@ namespace Kekcell
             {
                 Debug.WriteLine(ex, ex.Message);
                 MessageBox.Show(
-                    "Помилка при відкритті файлу",
+                    "Помилка при відкритті файлу!",
                     "Kekcell",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error);

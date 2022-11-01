@@ -49,4 +49,10 @@ namespace Kekcell
         public CellZeroDivisionException(string cell)
             : base(cell, $"Ділення на нуль заборонено.") { }
     }
+
+    public class CellReferencesErrorException : Exception
+    {
+        public CellReferencesErrorException(string cell)
+            : base($"Помилка, при обчисленні комірок, що посилаються на {cell}.") { }
+    }
 }

@@ -7,6 +7,8 @@ namespace Kekcell
 {
     class Cell
     {
+        public static readonly string ERROR_VALUE = "error";
+
         private int _row;
         private int _column;
         private readonly string _name;
@@ -71,21 +73,24 @@ namespace Kekcell
 
         public void ChangeExpression(string expression)
         {
+            string value = ERROR_VALUE;
             var dependecies = _dependencies.ToDictionary(x => x.Key, x => x.Value);
             ClearDependencies();
             try
             {
-                string value = KekcellCalculator.Evaluate(expression, _name).ToString();
-                Expression = expression;
-                Value = value;
-                ValueRecalculated?.Invoke(_row, _column, value);
-                RecalculeteReferences();
+                value = KekcellCalculator.Evaluate(expression, _name).ToString();
             }
             catch
             {
                 RestoreDependencies(dependecies);
-                Expression = expression;
                 throw;
+            }
+            finally
+            {
+                Expression = expression;
+                Value = value;
+                ValueRecalculated?.Invoke(_row, _column, value);
+                RecalculeteReferences();
             }
         }
 
@@ -112,10 +117,13 @@ namespace Kekcell
 
         private void RecalculeteReferences()
         {
+            bool isError = false;
             foreach (var r in _references)
             {
-                r.Value.RecalculateValue();
+                try { r.Value.RecalculateValue(); }
+                catch { isError = true; }
             }
+            if (isError) throw new CellReferencesErrorException(_name);
         }
 
         private void RecalculateValue()
@@ -148,12 +156,11 @@ namespace Kekcell
 
         private void SetErrorValue()
         {
-            Value = "";
-            ValueRecalculated?.Invoke(_row, _column, "");
+            Value = ERROR_VALUE;
+            ValueRecalculated?.Invoke(_row, _column, ERROR_VALUE);
             foreach (var r in _references)
             {
-                r.Value.Value = "";
-                ValueRecalculated?.Invoke(r.Value._row, r.Value._column, "");
+                r.Value.SetErrorValue();
             }
         }
 
@@ -191,8 +198,7 @@ namespace Kekcell
 
             if (isDependenciesError)
             {
-                Expression = "";
-                Value = "";
+                Expression = Value;
             }
 
             foreach (var r in _references)

@@ -129,7 +129,7 @@ namespace Kekcell
         private MessageBoxResult AskIfClosing()
         {
             return MessageBox.Show(
-                    "Ви впевненні, що хочете закрити таблицю. Незбережені дані будуть видалені",
+                    "Ви впевненні, що хочете закрити таблицю. Незбережені дані будуть видалені!",
                     "Kekcell",
                     MessageBoxButton.OKCancel,
                     MessageBoxImage.Warning);

@@ -145,7 +145,7 @@ namespace Kekcell
 
             foreach (var cell in newCells)
             {
-                isOk = isOk && !cell.RemakeDependencies(rows, columns, newCells);
+                isOk = !cell.RemakeDependencies(rows, columns, newCells) && isOk;
             }
 
             Rows = rows;
