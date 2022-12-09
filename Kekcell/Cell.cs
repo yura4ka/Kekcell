@@ -198,7 +198,9 @@ namespace Kekcell
 
             if (isDependenciesError)
             {
-                Expression = Value;
+                Expression = "";
+                Value = "";
+                ValueRecalculated(_row, _column, "");
             }
 
             foreach (var r in _references)

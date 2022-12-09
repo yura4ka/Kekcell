@@ -123,7 +123,7 @@ namespace Kekcell
             if (_helpWindow.IsVisible)
                 _helpWindow.Activate();
             else
-                _helpWindow.Show();
+                new Help().Show();
         }
 
         private MessageBoxResult AskIfClosing()

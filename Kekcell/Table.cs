@@ -143,15 +143,15 @@ namespace Kekcell
                 newData.Rows.Add(row);
             }
 
-            foreach (var cell in newCells)
+			Rows = rows;
+			Columns = columns;
+			Data = newData;
+			_cells = newCells;
+
+			foreach (var cell in newCells)
             {
                 isOk = !cell.RemakeDependencies(rows, columns, newCells) && isOk;
             }
-
-            Rows = rows;
-            Columns = columns;
-            Data = newData;
-            _cells = newCells;
 
             return isOk;
         }
